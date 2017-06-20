@@ -1,3 +1,6 @@
+import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Calendar;
 
 /**
@@ -18,5 +21,19 @@ public class CalendarPractic {
         c.add(Calendar.YEAR, -1);
 
         System.out.println(c.getTime());
+
+        Clock clock = Clock.systemUTC();
+
+        System.out.println(clock.instant());
+        System.out.println(clock.millis());
+
+        Duration d = Duration.ofSeconds(6000);
+        System.out.println(d.toMinutes());
+        System.out.println(d.toHours());
+
+        Clock clock2 = clock.offset(clock, d);
+        System.out.println(clock2.instant());
+
+        Instant instant = Instant.now();
     }
 }
